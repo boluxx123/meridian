@@ -77,8 +77,8 @@ const FUNCTION_BUDGET_MS = 50_000;
 // packages/contracts/vault/src/lib.rs, #557): a value the contract itself
 // would reject with InvalidSlippageBps is caught at config time instead of
 // permanently breaking every subsequent migrate_adapter submission.
-const DEFAULT_MAX_SLIPPAGE_BPS = 100;
-const MAX_ALLOWED_SLIPPAGE_BPS = 500;
+const DEFAULT_MAX_SLIPPAGE_BPS = MIGRATION_DEFAULT_SLIPPAGE_BPS;
+const MAX_ALLOWED_SLIPPAGE_BPS = MIGRATION_MAX_SLIPPAGE_BPS;
 
 // A minimum improvement floor avoids churning between two protocols whose
 // rates are within noise of each other: migrate_adapter costs a real

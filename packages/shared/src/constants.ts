@@ -95,7 +95,22 @@ export const CONTRACT_ADDRESSES = {
   },
 } as const;
 
-export const DEFAULT_SLIPPAGE_BPS = 50;
+/** Centralized slippage (bps). Single source of truth for issue #822. */
+export const SLIPPAGE_BPS = {
+  /** Frontend vault deposit/withdraw default (50 bps = 0.5%). */
+  FRONTEND_VAULT: 50,
+  /** DeFindex SDK / adapter floor. */
+  DEFINDEX: 10,
+  /** Migration keeper default. */
+  MIGRATION_DEFAULT: 100,
+  /** Migration keeper + vault admin ceiling. */
+  MIGRATION_MAX: 500,
+} as const;
+
+export const DEFAULT_SLIPPAGE_BPS = SLIPPAGE_BPS.FRONTEND_VAULT;
+export const DEFINDEX_SLIPPAGE_BPS = SLIPPAGE_BPS.DEFINDEX;
+export const MIGRATION_DEFAULT_SLIPPAGE_BPS = SLIPPAGE_BPS.MIGRATION_DEFAULT;
+export const MIGRATION_MAX_SLIPPAGE_BPS = SLIPPAGE_BPS.MIGRATION_MAX;
 
 export const STELLAR_NETWORKS = {
   testnet: {
